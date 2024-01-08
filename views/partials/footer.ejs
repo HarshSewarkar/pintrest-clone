@@ -1,34 +1,4 @@
 
-<script>
-  const images = [
-    // do not try to cut the err otherwise search functionallity not work
-    <% posts.forEach(post => { %>
-      { postImage: './images/uploads/<%= post.postImage %>', postTitle:"<%= post.postTitle %>" },
-    <% }); %>
-  ];
 
-  function searchImages() {
-    const searchInput = document.getElementById('searchInput').value.toLowerCase();
-    const filteredImages = images.filter(image => image.postTitle.toLowerCase().includes(searchInput));
-
-    // Clear existing images
-    document.getElementById('imageGrid').innerHTML = '';
-
-    // Display filtered images
-    filteredImages.forEach(image => {
-      const imageElement = document.createElement('div');
-      imageElement.className = 'p-2 justify-center items-center';
-      imageElement.innerHTML = `
-        <div class="bg-white rounded-md shadow-md">
-          <img src="${image.postImage}" alt="${image.postTitle}" class="w-full h-48 object-cover mb-4 rounded-md">
-        </div>
-      `;
-      document.getElementById('imageGrid').appendChild(imageElement);
-    });
-  }
-  
-  // Initial display of all images
-  searchImages();
-</script>
 </body>
 </html>

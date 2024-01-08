@@ -55,7 +55,6 @@
       >
         <!-- Your existing grid code here -->
         <div class="p-2 justify-center items-center">
-          
           <div class="bg-white rounded-md shadow-md">
             <img
               src="./images/uploads/<%=user.posts[0].postImage%>"
@@ -65,13 +64,11 @@
           </div>
           <h2 class="text-lg font-semibold"><%=user.posts[0].postTitle%></h2>
           <p class="text-gray-600"><%=user.posts.length%> Pins</p>
+          <!-- See All Posts Link -->
+          <a href="/all-posts" class= "bg-red-400 px-4 rounded-2xl text-black"
+            >See All</a
+          >
         </div>
-        <!-- Repeat the above block for other posts -->
-      </div>
-    </div>
-      <!-- See All Posts Link -->
-      <div class="text-center mt-8">
-        <a href="/all-posts" class="text-blue-500 hover:underline">See All Posts</a>
       </div>
     </div>
   </div>
