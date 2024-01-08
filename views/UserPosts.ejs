@@ -1,0 +1,26 @@
+<% include ./partials/header.ejs %>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold mb-6">All Posts</h1>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+        <!-- Loop through user posts and display each post -->
+        <% user.posts.forEach(post => { %>
+          <div class="p-2 justify-center items-center">
+            <div class="bg-white rounded-md shadow-md">
+              <img
+                src="./images/uploads/<%= post.postImage %>"
+                alt="<%= post.postTitle %>"
+                class="w-full h-32 object-cover mb-4 rounded-md"
+              />
+            </div>
+            <h2 class="text-lg font-semibold"><%= post.postTitle %></h2>
+            <p class="text-gray-600"><%= post.postContent.substring(0, 50) %>...</p>
+            <!-- You can add more details or customize the post display as needed -->
+          </div>
+        <% }); %>
+      </div>
+  
+    </div>
+<% include ./partials/footer.ejs %>

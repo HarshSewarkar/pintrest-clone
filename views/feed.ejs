@@ -1,0 +1,20 @@
+<% include ./partials/header.ejs %>
+<div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+  <h1 class="text-2xl font-bold mb-6">All Posts</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+    <!-- Loop through user posts and display each post -->
+    <% posts.forEach(post => { %>
+    <div class="p-2 justify-center items-center">
+      <div class="bg-white rounded-md shadow-md">
+        <img
+          src="./images/uploads/<%= post.postImage %>"
+          alt="<%= post.postTitle %>"
+          class="w-full h-48 object-cover mb-4 rounded-md"
+        />
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+<% include ./partials/footer.ejs %>

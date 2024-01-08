@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Nav Seaction -->
+    <% if (nav ===true){%>
+      <div class="header border-b-2 border-gray-200 flex items-center flex-wrap">
+        <div class="logo">
+          <img src="./images/img/Pinterest-logo.png" alt="Pinterest logo" class="w-8 m-5" />
+        </div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Search"
+          class="h-9 rounded-full bg-gray-200 text-gray-700 border px-4 border-transparent text-base font-bold flex-grow m-5"
+          oninput="searchImages()"
+        />
+        <div class="search-icon hidden">
+          <!-- Assuming this is a search icon, but the provided code has an empty div -->
+          <p>🔍</p>
+        </div>
+        <div class="icons flex items-center mt-4 md:mt-0">
+          <a href="/feed" class="text-gray-700 m-2">Home</a>
+          <a href="/profile" id="profile" class="flex items-center m-2">
+            <img src="../images/uploads/<%=user.ProfileImage%>" alt="Profile" class="w-8 h-8 object-cover rounded-full" />
+            <!-- <span class="profile-name ml-2 text-gray-500">brea</span> -->
+          </a>
+          <a href="#" class="m-2">
+            <img src="./images/img/messages.png" alt="Messages" class="w-6" />
+          </a>
+          <a href="/logout" class="m-2">
+            <img src="./images/img/dots.png" alt="Extra Menu" class="w-6" />
+          </a>
+        </div>
+      </div>
+    
+      <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Search Images</h1>
+    
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8" id="imageGrid">
+          <!-- Images will be dynamically added here -->
+        </div>
+      </div>
+    
+      <%}%>

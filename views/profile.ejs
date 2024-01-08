@@ -1,0 +1,90 @@
+<% include ./partials/header.ejs %>
+
+<div class="container mx-auto mt-8 p-4">
+  <form
+    id="profilepictute"
+    hidden
+    action="/fileupload"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <input name="avatar" id="selectfile" type="file" />
+  </form>
+  <span
+    id="Uploadicon"
+    class="w-10 flex absolute h-10 text-white bg-red-500 right-7 items-center justify-center rounded-full"
+  >
+    <i class="ri-pencil-line"></i>
+  </span>
+  <div class="flex items-center shadow-2xl gap-4 justify-center flex-col mb-8">
+    <!-- Profile Section -->
+    <div class="flex flex-col justify-center items-center">
+      <img
+        src="../images/uploads/<%=user.ProfileImage%>"
+        alt="Profile Picture"
+        class="w-28 h-28 border-4 object-cover border-gray-300 rounded-full mb-4 md:mb-0"
+      />
+      <div class="ml-0 md:ml-8">
+        <h1 class="text-3xl font-semibold"><%=user.username%></h1>
+        <div class="flex justify-center items-center gap-2 mt-2">
+          <img
+            class="w-5"
+            src="./images/img/Pinterest-logo.png"
+            alt="Pinterest Logo"
+          />
+          <p class="text-gray-600">@<%=user.username%></p>
+        </div>
+      </div>
+    </div>
+    <!-- Profile Actions -->
+    <div class="flex justify-center gap-2 items-center mt-4">
+      <button class="border-2 text-black px-4 py-2 rounded-full">Share</button>
+      <button class="border-2 text-black px-4 py-2 rounded-full">
+        Edit Profile
+      </button>
+    </div>
+    <a href="/create">
+      <button class="border-2 bg-red-500 text-white px-20 py-2 rounded-2xl">
+        Create post
+      </button>
+    </a>
+    <!-- Boards Section -->
+    <div class="container mx-auto">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8"
+      >
+        <!-- Your existing grid code here -->
+        <div class="p-2 justify-center items-center">
+          
+          <div class="bg-white rounded-md shadow-md">
+            <img
+              src="./images/uploads/<%=user.posts[0].postImage%>"
+              alt="Board 2"
+              class="w-full h-32 object-cover mb-4 rounded-md"
+            />
+          </div>
+          <h2 class="text-lg font-semibold"><%=user.posts[0].postTitle%></h2>
+          <p class="text-gray-600"><%=user.posts.length%> Pins</p>
+        </div>
+        <!-- Repeat the above block for other posts -->
+      </div>
+    </div>
+      <!-- See All Posts Link -->
+      <div class="text-center mt-8">
+        <a href="/all-posts" class="text-blue-500 hover:underline">See All Posts</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    var pencil = document.querySelector("#Uploadicon");
+    var file = document.querySelector("#selectfile");
+    var picture = document.querySelector("#profilepictute");
+    pencil.addEventListener("click", function () {
+      file.click();
+    });
+    file.addEventListener("change", function () {
+      picture.submit();
+    });
+  </script>
+  <% include ./partials/footer.ejs %>
+</div>

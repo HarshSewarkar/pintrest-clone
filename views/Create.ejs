@@ -1,0 +1,35 @@
+<% include ./partials/header.ejs %>
+
+<body class="bg-gray-100">
+
+    <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold text-red-500 mb-6">Create a Post</h1>
+  
+      <form action="/submit-post" method="post" enctype="multipart/form-data">
+        <!-- Post Title -->
+        <div class="mb-4">
+          <label for="postTitle" class="block text-gray-700 font-bold mb-2">Title:</label>
+          <input type="text" id="postTitle" name="postTitle" class="w-full h-10 px-3 border rounded focus:outline-none focus:border-blue-500" required>
+        </div>
+  
+        <!-- Post Content -->
+        <div class="mb-4">
+          <label for="postContent" class="block text-gray-700 font-bold mb-2">Content:</label>
+          <textarea id="postContent" name="postContent" class="w-full h-32 px-3 border rounded focus:outline-none focus:border-blue-500" required></textarea>
+        </div>
+  
+        <!-- Image Upload -->
+        <div class="mb-4">
+          <label for="postImage" class="block text-gray-700 font-bold mb-2">Upload Image:</label>
+          <input type="file" id="postImage" name="postImage" accept="image/*" class="w-full">
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="flex items-center justify-center">
+          <button type="submit" class="bg-red-500 text-white px-28 py-2 rounded-2xl hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">Create Post</button>
+        </div>
+      </form>
+  
+    </div>
+
+<% include ./partials/footer.ejs %>
